@@ -5,6 +5,7 @@ const expense = document.getElementById("expense");
 const category = document.getElementById("category");
 
 const expensesList = document.querySelector("ul")
+const expenseLength = document.getElementById("expense-length")
 
 amount.oninput = () => {
 
@@ -49,6 +50,8 @@ form.onsubmit = (e) => {
     expenseAdd(newExpense)
 }
 
+
+// Função para adicionar a nova despesa na lista
 function expenseAdd(newExpense) {
     try {
         // Cria o elemento para adicionar na lista
@@ -67,13 +70,33 @@ function expenseAdd(newExpense) {
               <img src="./img/remove.svg" alt="remover" class="remove-icon" />
         `
 
-        console.log(expenseItem)
-
         // Adiciona o elemento na lista
         expensesList.appendChild(expenseItem)
+
+        // Atuliza os totais
+        uptadeTotal()
+
+        // Reseta o formulário
+        form.reset()
 
     } catch (error) {
         alert("Não foi possível adicionar a despesa.")
         console.log(error)
+    }
+}
+
+function uptadeTotal() {
+    try {
+        // Recupera todos os itens da lista
+        const items = expensesList.children
+
+        // Atualiza a quantidade de despesas
+        expenseLength.textContent = `${items.length} ${items.length === 1 ? "despesa" : "despesas"}`
+
+       
+        
+    } catch (error) {
+        console.log(error)
+        alert("Não foi possível atualizar o total.")
     }
 }
