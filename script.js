@@ -51,7 +51,6 @@ form.onsubmit = (e) => {
     expenseAdd(newExpense)
 }
 
-
 // Função para adicionar a nova despesa na lista
 function expenseAdd(newExpense) {
     try {
@@ -86,6 +85,7 @@ function expenseAdd(newExpense) {
     }
 }
 
+// Atualiza o total de despesas e a quantidade
 function uptadeTotal() {
     try {
         // Recupera todos os itens da lista
@@ -99,13 +99,14 @@ function uptadeTotal() {
 
         // Percorre todos os itens da lista
         for (let item = 0; item < items.length; item++) {
-            // Pega o valor do item atual, remove o "R$" e converte para número
-            let currentAmount = Number(items[item].querySelector(".expense-amount").textContent.replace("R$", "").replace(",", "."))
+            // Pega o valor do item atual, remove caracteres não numéricos e converte para número
+            let currentAmount = Number(items[item].querySelector(".expense-amount").textContent.replace(/[^\d,]/g, "").replace(",", "."))
 
             // Incrementa o total
             total += currentAmount
         }
 
+        console.log(total)
         // Atualiza o total na interface com o formato BRL
         expensesTotal.innerHTML = `<small style="margin-right: unset;">R$</small>${formarCurrencyBRL(total).replace("R$", "")}`
     } catch (error) {
@@ -113,3 +114,18 @@ function uptadeTotal() {
         alert("Não foi possível atualizar o total.")
     }
 }
+
+// Evento de clique para remover uma despesa
+expensesList.addEventListener("click", function (e) {
+    //Verifica se o elemento clicado é o ícone de remoção
+    if(e.target.classList.contains("remove-icon")){
+      // Obtém o elemento pai (a despesa) e o remove da lista
+      const item = e.target.parentElement;
+
+        // Remove o item da lista
+      item.remove();
+    }
+
+    // Atualiza os totais após a remoção
+    uptadeTotal()
+})
