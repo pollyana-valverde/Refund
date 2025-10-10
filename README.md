@@ -11,7 +11,7 @@
 
 ## 📸 Preview
 
-![preview do projeto](videos/preview_comprimido.mp4)
+![preview do projeto](img/preview.png)
 
 ---
 
