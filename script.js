@@ -47,7 +47,7 @@ form.onsubmit = (e) => {
         created_at: new Date()
     }
 
-// Chama a função para adicionar a nova despesa
+    // Chama a função para adicionar a nova despesa
     expenseAdd(newExpense)
 }
 
@@ -79,6 +79,9 @@ function expenseAdd(newExpense) {
         // Reseta o formulário
         form.reset()
 
+        // Foca no campo de despesa
+        expense.focus()
+
     } catch (error) {
         alert("Não foi possível adicionar a despesa.")
         console.log(error)
@@ -106,7 +109,6 @@ function uptadeTotal() {
             total += currentAmount
         }
 
-        console.log(total)
         // Atualiza o total na interface com o formato BRL
         expensesTotal.innerHTML = `<small style="margin-right: unset;">R$</small>${formarCurrencyBRL(total).replace("R$", "")}`
     } catch (error) {
@@ -118,14 +120,17 @@ function uptadeTotal() {
 // Evento de clique para remover uma despesa
 expensesList.addEventListener("click", function (e) {
     //Verifica se o elemento clicado é o ícone de remoção
-    if(e.target.classList.contains("remove-icon")){
-      // Obtém o elemento pai (a despesa) e o remove da lista
-      const item = e.target.parentElement;
+    if (e.target.classList.contains("remove-icon")) {
+        // Obtém o elemento pai (a despesa) e o remove da lista
+        const item = e.target.parentElement;
 
         // Remove o item da lista
-      item.remove();
+        item.remove();
     }
 
     // Atualiza os totais após a remoção
     uptadeTotal()
+
+    // Foca no campo de despesa
+    expense.focus()
 })
