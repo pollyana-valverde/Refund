@@ -4,6 +4,8 @@ const amount = document.getElementById("amount");
 const expense = document.getElementById("expense");
 const category = document.getElementById("category");
 
+const expensesList = document.querySelector("ul")
+
 amount.oninput = () => {
 
     // Substituindo as letras por nada, aceitando apenas valor numérico
@@ -49,7 +51,27 @@ form.onsubmit = (e) => {
 
 function expenseAdd(newExpense) {
     try {
-        
+        // Cria o elemento para adicionar na lista
+        const expenseItem = document.createElement("li")
+        expenseItem.classList.add("expense")
+        expenseItem.innerHTML = `
+            <img src="./img/${newExpense.category_id}.svg" alt="Ícone de tipo da despesa" />
+
+              <div class="expense-info">
+                <strong>${newExpense.expense}</strong>
+                <span>${newExpense.category_name}</span>
+              </div>
+
+              <span class="expense-amount"><small>R$</small>${(newExpense.amount).replace("R$", "")}</span>
+
+              <img src="./img/remove.svg" alt="remover" class="remove-icon" />
+        `
+
+        console.log(expenseItem)
+
+        // Adiciona o elemento na lista
+        expensesList.appendChild(expenseItem)
+
     } catch (error) {
         alert("Não foi possível adicionar a despesa.")
         console.log(error)
