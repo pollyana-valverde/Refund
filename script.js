@@ -6,6 +6,7 @@ const category = document.getElementById("category");
 
 const expensesList = document.querySelector("ul")
 const expenseLength = document.getElementById("expense-length")
+const expensesTotal = document.getElementById("expensesTotal")
 
 amount.oninput = () => {
 
@@ -93,8 +94,20 @@ function uptadeTotal() {
         // Atualiza a quantidade de despesas
         expenseLength.textContent = `${items.length} ${items.length === 1 ? "despesa" : "despesas"}`
 
-       
-        
+        // Variável para incrementar o total
+        let total = 0
+
+        // Percorre todos os itens da lista
+        for (let item = 0; item < items.length; item++) {
+            // Pega o valor do item atual, remove o "R$" e converte para número
+            let currentAmount = Number(items[item].querySelector(".expense-amount").textContent.replace("R$", "").replace(",", "."))
+
+            // Incrementa o total
+            total += currentAmount
+        }
+
+        // Atualiza o total na interface com o formato BRL
+        expensesTotal.innerHTML = `<small style="margin-right: unset;">R$</small>${formarCurrencyBRL(total).replace("R$", "")}`
     } catch (error) {
         console.log(error)
         alert("Não foi possível atualizar o total.")
