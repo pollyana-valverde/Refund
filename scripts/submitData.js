@@ -1,10 +1,10 @@
 // Captura o evento de submit do formulário para obter os valores
-export async function submitData(form, amount, category, expense, expensesList, expenseLength, expensesTotal, formarCurrencyBRL, expenseAdd, uptadeTotal) {
+export async function submitData(form, amount, category, expense) {
     form.onsubmit = async (e) => {
         // Previne o comportamento padrão do formulário
         e.preventDefault()
 
-        const newExpense = await fetch('http://localhost:3000/expenses', {
+       await fetch('http://localhost:3000/expenses', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
