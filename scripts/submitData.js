@@ -10,7 +10,7 @@ export async function submitData(form, amount, category, expense) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: new Date().getTime(),
+                id: new Date().getTime().toString(),
                 expense: expense.value,
                 category_id: category.value,
                 category_name: category.options[category.selectedIndex].text, //Pega apenas a opção selecionada
