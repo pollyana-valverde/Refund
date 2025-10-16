@@ -1,5 +1,5 @@
 // Função para adicionar a nova despesa na lista
-export function expenseAdd(newExpense, expensesList, form, expense, expenseLength, expensesTotal, formarCurrencyBRL, uptadeTotal) {
+export function expenseAdd(newExpense, form, expense, expensesList, expenseLength, expensesTotal, formarCurrencyBRL, uptadeTotal) {
     try {
         // Cria o elemento para adicionar na lista
         const expenseItem = document.createElement("li")
