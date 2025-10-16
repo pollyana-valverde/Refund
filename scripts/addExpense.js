@@ -30,7 +30,7 @@ export function expenseAdd(newExpense, expensesList, form, expense, expenseLengt
         expense.focus()
 
     } catch (error) {
-        alert("Não foi possível adicionar a despesa.")
+        console.log("Não foi possível adicionar a despesa.")
         console.log(error)
     }
 }

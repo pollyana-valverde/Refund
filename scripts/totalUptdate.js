@@ -21,9 +21,9 @@ export function uptadeTotal(expensesList, expenseLength, expensesTotal, formarCu
 
         // Atualiza o total na interface com o formato BRL
         expensesTotal.innerHTML = `<small style="margin-right: unset;">R$</small>${formarCurrencyBRL(total).replace("R$", "")}`
-        
+
     } catch (error) {
         console.log(error)
-        alert("Não foi possível atualizar o total.")
+        console.log("Não foi possível atualizar o total.")
     }
 }
