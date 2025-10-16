@@ -4,6 +4,7 @@ export function expenseAdd(newExpense, form, expense, expensesList, expenseLengt
         // Cria o elemento para adicionar na lista
         const expenseItem = document.createElement("li")
         expenseItem.classList.add("expense")
+        expenseItem.id = newExpense.id
         expenseItem.innerHTML = `
             <img src="./img/${newExpense.category_id}.svg" alt="Ícone de tipo da despesa" />
 
