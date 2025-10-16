@@ -1,20 +1,20 @@
 {
-    "expenses": [
-        { 
-            "id": 1, 
-            "expense": "Almoço", 
-            "category_id": "food", 
-            "category_name": "Alimentação", 
-            "amount": "45,00", 
-            "created_at": 12042024 
-        },
-        { 
-            "id": 2, 
-            "expense": "Transporte", 
-            "category_id": "transport", 
-            "category_name": "Transporte", 
-            "amount": "20,00", 
-            "created_at": 12042024 
-        }
-    ]
+  "expenses": [
+    {
+      "id": "1",
+      "expense": "Almoço",
+      "category_id": "food",
+      "category_name": "Alimentação",
+      "amount": "45,00",
+      "created_at": 12042024
+    },
+    {
+      "id": "2",
+      "expense": "Transporte",
+      "category_id": "transport",
+      "category_name": "Transporte",
+      "amount": "20,00",
+      "created_at": 12042024
+    }
+  ]
 }
