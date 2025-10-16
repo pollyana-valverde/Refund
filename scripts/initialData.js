@@ -25,6 +25,4 @@ function displayInitialData(initialExpenses, form, expense, expensesList, expens
     initialExpenses.forEach(newExpense => {
         expenseAdd(newExpense, form, expense, expensesList, expenseLength, expensesTotal, formarCurrencyBRL, uptadeTotal);
     });
-
-    console.log("Dados na lista:", initialExpenses);
 }
